@@ -1,2 +1,3 @@
 # hello
-test 
+hello !
+this is my first github code!
