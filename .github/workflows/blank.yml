@@ -1,0 +1,23 @@
+name: Daily Index File Build
+
+on:
+  schedule:
+    - cron: '0 7 * * *'
+
+jobs:
+  build:
+    name: Run Index
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Install PHP 7.4.3
+        uses: actions/setup-php@v3
+        with:
+          php-version: '7.4.3'
+      - name: Set environment variable
+        run: |
+          export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+          export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+      - name: Execute PHP Script
+        run: php index.php
