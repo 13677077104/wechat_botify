@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
+      - name: PHP Version
+        run: php --version
       - name: Install PHP 7.4.3
         uses: actions/setup-php@master
         with:
