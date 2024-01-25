@@ -14,10 +14,7 @@ jobs:
         uses: actions/checkout@master
       - name: PHP Version
         run: php --version
-      - name: Install PHP 7.4.3
-        uses: actions/setup-php@master
-        with:
-          php-version: '7.4.3'
+
       - name: Set environment variable
         run: |
           export app_id=${{ secrets.APP_ID }}
