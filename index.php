@@ -56,10 +56,10 @@ class wechat {
     {
         try {
             $accessToken = $this->getAccessToken();
-            $openId = 'oi4Me6y3rYKj330yUgKU0M4lQp-4';
+            $openId = getenv('open_id');
             $this->client->post('cgi-bin/message/template/send', [
                 'touser' => $openId,
-                'template_id' => 'HrrZc24lTvxo5ElbQ5PaOFjB9FZ3J8qD-wpYYIaW6Gc',
+                'template_id' => getenv('template_id'),
                 'data' => [
                     'today' => [
                         'value' => date('Y-m-d'),
