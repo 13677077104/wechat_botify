@@ -1,8 +1,9 @@
-name: Daily Index File Build
+name: Daily Notify Test
 
 on:
   schedule:
     - cron: '0 7 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -12,12 +13,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@master
       - name: Install PHP 7.4.3
-        uses: actions/setup-php@v3
+        uses: actions/setup-php@master
         with:
           php-version: '7.4.3'
       - name: Set environment variable
         run: |
-          export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
-          export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+          export app_id=${{ secrets.APP_ID }}
+          export app_secret=${{ secrets.APP_SECRET }}
+          export template_id=${{ secrets.TEMPLATE_ID }}
+          export open_id=${{ secrets.OPEN_ID }}
       - name: Execute PHP Script
         run: php index.php
