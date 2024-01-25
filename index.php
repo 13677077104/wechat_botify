@@ -16,8 +16,8 @@ class wechat {
         $baseUrl = 'https://api.weixin.qq.com';
         $this->client = new Utils();
         $this->client->setBaseUrl($baseUrl);
-        $this->appId = getenv('app_id');
-        $this->secret = getenv('app_secret');
+        $this->appId = getenv('APP_ID');
+        $this->secret = getenv('APP_SECRET');
         if (!$this->appId) {
             throw new Exception('appid 获取失败');
         }
@@ -56,10 +56,10 @@ class wechat {
     {
         try {
             $accessToken = $this->getAccessToken();
-            $openId = getenv('open_id');
+            $openId = getenv('OPEN_ID');
             $this->client->post('cgi-bin/message/template/send', [
                 'touser' => $openId,
-                'template_id' => getenv('template_id'),
+                'template_id' => getenv('TEMPLATE_ID'),
                 'data' => [
                     'today' => [
                         'value' => date('Y-m-d'),
